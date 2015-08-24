@@ -42,6 +42,10 @@
         <span id="counter"></span>
       </div>
       <?php
+      echo $this->Form->input('is_featured',['label'=>__('Is featured?')]);
+      echo $this->Form->input('featured_image',['type'=>'file']);
+      ?>
+      <?php
       echo $this->Form->input('body',['type'=>'hidden', 'name'=>'body', 'id'=>'body','label'=>false,'placeholder'=>__('Body'),'value'=>__('Write here...')]);
       //echo $this->Form->input('category_id', ['options' => $categories, 'empty' => true]);
       //echo $this->Form->input('user_id', ['options' => $users, 'empty' => true]);

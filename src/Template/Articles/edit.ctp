@@ -27,20 +27,22 @@
           <span title="List" class="ql-format-button ql-list"></span>
           <span class="ql-format-separator"></span>
           <span title="Bullet" class="ql-format-button ql-bullet"></span>
-          <span class="ql-format-separator"></span>
-          <select title="Text Alignment" class="ql-align">
-            <option value="left" label="Left" selected=""></option>
-            <option value="center" label="Center"></option>
-            <option value="right" label="Right"></option>
-            <option value="justify" label="Justify"></option>
-          </select>
-        </span>
       </div>
       <div id="toolbar-editor" class="editor"></div>
       <div class="info right silent">
         <span class="ql-format-separator"></span>
         <span id="counter"></span>
       </div>
+      <br/>
+      <?php
+      if(!empty($article->featured_media)){
+        echo $this->Html->image($article->featured_media->filename);
+      }
+       ?>
+      <?php
+      echo $this->Form->input('is_featured',['label'=>__('Is featured?')]);
+      echo $this->Form->input('featured_image',['type'=>'file']);
+      ?>
       <?php
       echo $this->Form->input('body',['type'=>'hidden', 'name'=>'body', 'id'=>'body','label'=>false,'placeholder'=>__('Body')]);
       //echo $this->Form->input('category_id', ['options' => $categories, 'empty' => true]);

@@ -30,6 +30,12 @@ class MediaTable extends Table
     $this->displayField('filename');
     $this->primaryKey('id');
 
+    $this->hasMany('FeaturedArticles', [
+        'className' => 'Articles',
+        'foreignKey' => 'featured_image',
+        'propertyName' => 'featured_articles'
+    ]);
+
     $this->belongsToMany('Articles', [
       'foreignKey' => 'media_id',
       'targetForeignKey' => 'article_id',

@@ -11,11 +11,15 @@
     <?= $this->Html->css('foundation.css') ?>
     <?= $this->Html->css('foundation-icons.css') ?>
     <?= $this->Html->css('public.css') ?>
+    <?= $this->Html->css('slick.css') ?>
+    <?= $this->Html->css('slick-theme.css') ?>
+    <?= $this->Html->css('blog.css') ?>
 
     <?= $this->Html->css('quill.snow.css') ?>
 
+
     <?= $this->Html->script('vendor/modernizr'); ?>
-    <!-- <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
@@ -25,7 +29,7 @@
     <?= $this->fetch('script') ?>
 </head>
 <body>
-  <div class="row">
+  <header class="fixed">
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 colmuns">
             <li class="name">
@@ -33,32 +37,28 @@
             </li>
             <!-- <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li> -->
         </ul>
-        <section class="top-bar-section">
+        <section class="top-bar-section right">
           <?= $this->element('user') ?>
         </section>
-    </nav>
-  </div>
-
-  <div class="row">
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <section class="top-bar-section">
+        <section class="top-bar-section right">
         <?php
           echo $this->cell('Menu');
         ?>
       </section>
     </nav>
-  </div>
+  </header>
 
+<main>
     <?= $this->Flash->render() ?>
     <div class="row">
     <section class="container clearfix">
         <?= $this->fetch('content') ?>
     </section>
   </div>
-  <div class="row"
+</main>
+
     <footer>
     </footer>
-  </div>
 
     <?= $this->Html->script('vendor/jquery'); ?>
     <?= $this->Html->script('foundation.min'); ?>

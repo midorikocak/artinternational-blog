@@ -11,7 +11,6 @@ use Cake\Routing\Router;
 */
 class ArticlesController extends AppController
 {
-
   /**
   * Index method
   *
@@ -71,9 +70,14 @@ class ArticlesController extends AppController
         $category = $this->Articles->Categories->get($categoryId);
         $this->request->data['category_id'] = $categoryId;
       }
+
+      if(empty($this->request->data['featured_image']['name'])){
+        unset($this->request->data['featured_image']);
+      }
+
       $article = $this->Articles->newEntity();
       if ($this->request->is('post')) {
-        $article = $this->Articles->patchEntity($article, $this->request->data);
+        $article = $this->Articles->patchEntity($article, $this->request->data,['validate' => 'add']);
         $article->user_id = $this->Auth->user('id');
         if ($this->Articles->save($article)) {
           $this->Flash->success(__('The article has been saved.'));
@@ -97,15 +101,20 @@ class ArticlesController extends AppController
     {
       $session = $this->request->session();
       $article = $this->Articles->get($id, [
-        'contain' => ['Media']
+        'contain' => ['Media','FeaturedMedia']
         ]);
 
+      if(empty($this->request->data['featured_image']['name'])){
+        unset($this->request->data['featured_image']);
+      }
 
         if ($this->request->is(['patch', 'post', 'put'])) {
           $article = $this->Articles->patchEntity($article, $this->request->data);
-          //var_dump($this->request->data['body']);
 
-          //$media = TableRegistry::get('Media');
+          if($this->request->data['is_featured']=='1' && empty($article->featured_image)){
+             $this->Flash->error(__('The article could not be saved. Please, try again.'));
+             return $this->redirect($this->here);
+          }
 
           $article->user_id = $this->Auth->user('id');
           if ($this->Articles->save($article, ['associated' => ['Media']])) {

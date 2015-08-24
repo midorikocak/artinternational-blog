@@ -8,7 +8,6 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 use Cake\ORM\TableRegistry;
 use Cake\Routing\Router;
-
 /**
  * Articles Model
  *
@@ -38,6 +37,12 @@ class ArticlesTable extends Table
             'foreignKey' => 'article_id',
             'targetForeignKey' => 'media_id',
             'joinTable' => 'articles_media'
+        ]);
+
+        $this->belongsTo('FeaturedMedia', [
+            'className' => 'Media',
+            'propertyName' => 'featured_media',
+            'foreignKey' => 'featured_image',
         ]);
 
         $this->belongsTo('Users', [
@@ -70,6 +75,35 @@ class ArticlesTable extends Table
         return $validator;
     }
 
+    public function validationAdd(Validator $validator)
+    {
+        $validator
+            ->add('id', 'valid', ['rule' => 'numeric'])
+            ->allowEmpty('id', 'create');
+        // $validator
+        //     ->add('is_featured', 'custom', [
+        //         'rule' =>
+        //         function ($value,$context) {
+        //           if(empty($context['data']['featured_image']['name']) && $value == "1")
+        //           {
+        //             return false;
+        //           }
+        //           return true;
+        //         }
+        //         ,
+        //         'message' => 'Cannot make article featured without a featured image'
+        //     ]);
+
+        $validator
+            ->allowEmpty('title');
+
+        $validator
+            ->allowEmpty('body');
+
+        return $validator;
+    }
+
+
     private function extractImages($string){
       $return  = [];
 
@@ -96,8 +130,19 @@ class ArticlesTable extends Table
       foreach($mediaArray as $filename){
         array_push($data['media']['_ids'], $media->getIdFromFilename(str_replace(Router::url('/', true)."img/","",$filename)));
       }
+
+  if(isset($data['featured_image']) && $data['featured_image']['name']!=''){
+    $featuredImage = $media->newEntity(['filename'=>$data['featured_image']]);
+    $media->save($featuredImage);
+    $data['featured_image'] = $featuredImage->id;
+  }
+
     }
 
+    public function getFeaturedArticles(){
+      $query = $this->find('all',['contain'=>['FeaturedMedia'],'conditions'=>['Articles.is_featured = 1','Articles.featured_image IS NOT NULL']]);
+      return $query;
+    }
 
     public function isOwnedBy($articleId, $userId)
     {

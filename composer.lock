@@ -131,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "38a1264d8a6f69ea2183fba3b4668fefd71d28dd"
+                "reference": "ec383183dc7094b075a8eb39ebef82c68ca205c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/38a1264d8a6f69ea2183fba3b4668fefd71d28dd",
-                "reference": "38a1264d8a6f69ea2183fba3b4668fefd71d28dd",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/ec383183dc7094b075a8eb39ebef82c68ca205c8",
+                "reference": "ec383183dc7094b075a8eb39ebef82c68ca205c8",
                 "shasum": ""
             },
             "require": {
@@ -198,7 +198,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-08-14 13:45:43"
+            "time": "2015-08-24 07:35:26"
         },
         {
             "name": "cakephp/migrations",
@@ -745,12 +745,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/bake.git",
-                "reference": "248b07db40bd52e07cdc87a5b013188b7ccc054e"
+                "reference": "6f12119e71de9c859bab2007d38fbf44cb666f1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/bake/zipball/248b07db40bd52e07cdc87a5b013188b7ccc054e",
-                "reference": "248b07db40bd52e07cdc87a5b013188b7ccc054e",
+                "url": "https://api.github.com/repos/cakephp/bake/zipball/6f12119e71de9c859bab2007d38fbf44cb666f1f",
+                "reference": "6f12119e71de9c859bab2007d38fbf44cb666f1f",
                 "shasum": ""
             },
             "require": {
@@ -783,7 +783,7 @@
                 "bake",
                 "cakephp"
             ],
-            "time": "2015-08-08 19:46:26"
+            "time": "2015-08-20 12:12:53"
         },
         {
             "name": "cakephp/debug_kit",

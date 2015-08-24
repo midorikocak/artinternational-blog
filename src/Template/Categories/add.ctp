@@ -4,7 +4,7 @@
         <?php
             //echo $this->Form->input('parent_id', ['options' => $parentCategories, 'empty' => __('Root')]);
             echo $this->Form->input('name');
-            echo $this->Form->input('link');
+            //echo $this->Form->input('link');
             echo $this->Form->input('description');
         ?>
     </fieldset>

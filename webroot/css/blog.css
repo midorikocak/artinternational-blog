@@ -1,0 +1,78 @@
+/* Blog */
+
+body{
+  background: #eeeeed !important;
+}
+
+header{
+  background: none !important;
+  box-shadow: none;
+  z-index: 99;
+}
+
+header *{
+  background: none !important;
+}
+
+main{
+  z-index: 100;
+  position: inherit;
+}
+
+.caret:after {
+  content: '';
+  position: absolute;
+  top: 23%;
+  left: 11px;
+  border-top: 9px solid #eeeeed;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+}
+
+.form button:hover, .form button:focus {
+  color: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+button {
+  background: none;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
+  border-color: #ccc;
+}
+
+#toolbar-editor{
+    background-color: #fff;
+    border: solid 1px #ccc;
+}
+
+#toolbar-editor:hover{
+  border: 1px solid rgba(0, 0, 0, 0.44);
+}
+
+.featured-slider{
+  margin:30px;
+}
+
+.featured-slider img{
+  margin: 0 auto;
+  height: 50vh;
+  width: auto%;
+}
+
+.slick-next:before {
+  font-family: fontawesome;
+  content: "\f105";
+  color: white;
+  font-weight: bold;
+  font-size: 60px;
+}
+
+.slick-prev:before {
+  font-family: fontawesome;
+  content: "\f104";
+  color: white;
+  font-weight: bold;
+  font-size: 60px;
+}
