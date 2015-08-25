@@ -1,12 +1,12 @@
 <article>
   <h3><?= $this->Html->link(h($article->title), ['controller'=>'articles','action' => 'view', $article->id]) ?></h3>
   <div class="row">
-    <div class="large-10 medium-10 columns article-info">
+    <div class="large-10 medium-10 small-10 columns article-info">
       <span class="silent">Written by <a href="#"><?= $article->has('user') ? $this->Html->link($article->user->email, ['controller' => 'Users', 'action' => 'view', $article->user->id]) : '' ?></a> on
         <time pubdate datetime="<?= h($article->created) ?>"><?= h($article->created) ?></time>
       </span>
     </div>
-    <div class="large-2 medium-2 columns article-controls">
+    <div class="large-2 medium-2 small-2 columns article-controls">
       <?php
       if($session->read('Auth.User')):
       ?>
@@ -22,10 +22,12 @@
     </div>
   </div>
   <?php
-  if(!empty($article->featured_media)){
-    echo $this->Html->image($article->featured_media->filename,['class'=>'featured-image','url'=>['controller'=>'articles','action' => 'view', $article->id]]);
-  }
+  if(!empty($article->featured_media)):
   ?>
+    <div class="featured-image">
+      <?= $this->Html->image($article->featured_media->filename,['url'=>['controller'=>'articles','action' => 'view', $article->id]]) ?>
+    </div>
+  <?php endif; ?>
   <?= strip_tags($article->body, '<ul><ol><li><p><i><a><img><b><br><div><br/>'); ?>
   <center><?= $this->Html->link(__('Read More'), ['controller'=>'articles','action' => 'view', $article->id]) ?></center>
 </article>

@@ -7,3 +7,4 @@
   ?>
 <?php endforeach; ?>
 <?= $this->element('paginator',['paginator'=>$this->paginator]) ?>
+<?= $this->Html->script('image-cropper', ['block' => 'scriptBottom']); ?>
