@@ -20,21 +20,5 @@
       ?>
     </div>
   </div>
-  <?php foreach ($articles as $article): ?>
-    <?php
-     echo $this->element('article',['article'=>$article]);
-    ?>
-  <?php endforeach; ?>
-    <div class="row">
-      <div class="large-12 medium-12 columns">
-        <div class="paginator">
-          <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-          </ul>
-          <p><?= $this->Paginator->counter() ?></p>
-        </div>
-      </div>
-    </div>
+  <?=  $this->element('articles',['articles'=>$articles, 'paginator'=>$this->Paginator]); ?>
   </div>

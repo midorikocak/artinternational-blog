@@ -144,6 +144,58 @@ class ArticlesTable extends Table
       return $query;
     }
 
+    // public function prepareFeatured(&$article){
+    //   var_dump($article);
+    //   //$article = preg_replace("/<img[^>]+\>/i", "", $article);
+    // }
+
+    // public function getArticlesOnMain(){
+    //
+    //   $filterArticles = function ($article, $key, $mapReduce){
+    //     $article['body'] = preg_replace("/<img[^>]+\>/i", "", $article['body']);
+    //     if(isset($article->featuredMedia->filename)){
+    //       $featuredImage = $article->featuredMedia->filename;
+    //     }
+    //     else{
+    //       $featuredImage = null;
+    //     }
+    //     $mapReduce->emitIntermediate($article,$featuredImage);
+    //   };
+    //
+    //   $prepareArticles = function ($articles, $featuredImage, $mapReduce) {
+    //   $mapReduce->emit($articles, $featuredImage);
+    //   };
+    //
+    //
+    //   $query = $this
+    //     ->find('all',['contain'=>['FeaturedMedia','Users']])
+    //     ->mapReduce($filterArticles, $prepareArticles);
+    //
+    //   return $query;
+    // }
+
+    public function limitWords($string, $wordLimit)
+{
+    $words = explode(" ",$string);
+    return implode(" ",array_splice($words,0,$wordLimit));
+}
+
+    public function getArticlesOnMain(){
+
+        $query = $this
+          ->find('all',['contain'=>['FeaturedMedia','Users']]);
+
+          $query->formatResults(function (\Cake\Datasource\ResultSetInterface $results) {
+              return $results->map(function ($row) {
+                  $row['body'] = preg_replace("/<img[^>]+\>/i", "", $this->limitWords($row['body'], 100));
+                  return $row;
+              });
+          });
+
+        return $query;
+
+    }
+
     public function isOwnedBy($articleId, $userId)
     {
         return $this->exists(['id' => $articleId, 'user_id' => $userId]);

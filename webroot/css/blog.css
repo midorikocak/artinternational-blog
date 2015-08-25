@@ -76,3 +76,15 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   font-weight: bold;
   font-size: 60px;
 }
+
+section h2{
+  text-align: center;
+}
+
+.container{
+  min-height: 75vh;
+}
+
+.featured-image{
+  margin-bottom: 1rem;
+}

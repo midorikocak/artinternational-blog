@@ -21,5 +21,11 @@
       ?>
     </div>
   </div>
+  <?php
+  if(!empty($article->featured_media)){
+    echo $this->Html->image($article->featured_media->filename,['class'=>'featured-image','url'=>['controller'=>'articles','action' => 'view', $article->id]]);
+  }
+  ?>
   <?= strip_tags($article->body, '<ul><ol><li><p><i><a><img><b><br><div><br/>'); ?>
+  <center><?= $this->Html->link(__('Read More'), ['controller'=>'articles','action' => 'view', $article->id]) ?></center>
 </article>
