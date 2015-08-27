@@ -49,6 +49,12 @@ Router::scope('/', function ($routes) {
      */
     $routes->connect('/', ['controller' => 'Articles', 'action' => 'index']);
 
+    $routes->connect('/:category', ['controller' => 'Categories', 'action' => 'view']);
+    
+    $routes->connect('/:category/:article', ['controller' => 'Articles', 'action' => 'view']);
+    
+     $routes->connect('/admin/:controller', ['action' => 'index'], ['routeClass' => 'DashedRoute']);
+     $routes->connect('/admin/:controller/:action/*', [], ['routeClass' => 'DashedRoute']); 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */

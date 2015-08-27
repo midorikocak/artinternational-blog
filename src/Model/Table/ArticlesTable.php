@@ -32,6 +32,7 @@ class ArticlesTable extends Table
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->addBehavior('Sluggable');
 
         $this->belongsToMany('Media', [
             'foreignKey' => 'article_id',
@@ -140,7 +141,7 @@ class ArticlesTable extends Table
     }
 
     public function getFeaturedArticles(){
-      $query = $this->find('all',['contain'=>['FeaturedMedia'],'conditions'=>['Articles.is_featured = 1','Articles.featured_image IS NOT NULL']]);
+      $query = $this->find('all',['contain'=>['FeaturedMedia'],'contain'=>['Categories','Users','FeaturedMedia'],'conditions'=>['Articles.is_featured = 1','Articles.featured_image IS NOT NULL']]);
       return $query;
     }
 
@@ -183,7 +184,7 @@ class ArticlesTable extends Table
     public function getArticlesOnMain($categoryId = null){
 
         $query = $this
-          ->find('all',['contain'=>['FeaturedMedia','Users']]);
+          ->find('all',['contain'=>['FeaturedMedia','Users','Categories']]);
           if($categoryId !=null){
             $query->where(['category_id'=>$categoryId]);
           }

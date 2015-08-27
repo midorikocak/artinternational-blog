@@ -5,7 +5,7 @@
       if(empty($category->link))
       {
         echo $this->Html->link(
-        h($category->name), ['controller' => 'Categories', 'action' => 'view' , $category->id, '_full' => true]);
+        h($category->name), '/'.$category->slug);
       }else{
         echo $this->Html->link(
         h($category->name),$category->link);

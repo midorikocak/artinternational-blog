@@ -70,6 +70,7 @@ class AppController extends Controller
         $this->viewBuilder()->layout('public');
         $this->checkIfThereIsAdminIfNotCreate();
         $this->checkIfThereSettingIfNotCreate();
+        $this->checkIfThereCategoriesIfNotCreate();
         // } else {
         // $this->viewBuilder()->layout('logout');
         // }
@@ -94,6 +95,19 @@ class AppController extends Controller
             }
         } else {
             return true;
+        }
+    }
+    
+    public function checkIfThereCategoriesIfNotCreate()
+    {
+        $categoriesTable = TableRegistry::get('Categories');
+        $firstCategory = $categoriesTable->find('all')->toArray();
+        if (empty($firstCategory) && $this->request->params['controller'] != 'categories' && $this->request->params['action'] != 'add' && $this->request->params['action'] != 'login') {
+            
+            $this->redirect([
+                'controller' => 'categories',
+                'action' => 'add'
+            ]);
         }
     }
 

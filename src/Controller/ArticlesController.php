@@ -22,7 +22,8 @@ class ArticlesController extends AppController
         $this->paginate = [
             'contain' => [
                 'Users',
-                'FeaturedMedia'
+                'FeaturedMedia',
+                'Categories'
             ]
         ];
         $this->set('articles', $this->paginate($this->Articles->getArticlesOnMain()));
@@ -41,11 +42,24 @@ class ArticlesController extends AppController
      */
     public function view($id = null)
     {
-        $article = $this->Articles->get($id, [
+        if(isset($this->request->params['category'])){
+            $categorySlug = $this->request->params['category'];
+        }
+        if(isset($this->request->params['article'])){
+            $articleSlug = $this->request->params['article'];
+        }
+        if($id == null){
+            $category = $this->Articles->Categories->find('slugId',['slug'=>$categorySlug])->toArray();
+            $categoryId = $category[$categorySlug];
+            $article = $this->Articles->find('slug',['category_id'=>$categoryId,'slug'=>$articleSlug,'contain'=>['Users','Categories']])->first();
+        }else{
+            $article = $this->Articles->get($id, [
             'contain' => [
-                'Users'
+                'Users','Categories'
             ]
         ]);
+        }
+        
         $this->set('article', $article);
         $this->set('_serialize', [
             'article'

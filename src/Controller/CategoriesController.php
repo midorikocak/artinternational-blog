@@ -45,13 +45,21 @@ class CategoriesController extends AppController
       $this->paginate = [
         'Category.Articles' => []
       ];
-
+      if(isset($this->request->params['category'])){
+          $slug = $this->request->params['category'];
+      }
+      if($id == null){
+          $category = $this->Categories->find('slug',['slug'=>$slug])->first();
+          $id = $category->toArray()['id'];
+      }else{
+          $category = $this->Categories->get($id);
+      }
+      
       //$articles = $this->paginate($this->Categories->Articles->find('all',['conditions'=>['category_id'=>$id]]));
       $articles = $this->paginate($this->Categories->Articles->getArticlesOnMain($id));
 
       $this->set('articles', $articles);
 
-        $category = $this->Categories->get($id);
         $this->set('category', $category);
         $this->set('_serialize', ['category']);
     }

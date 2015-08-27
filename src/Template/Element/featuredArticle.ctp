@@ -1,6 +1,6 @@
 <div class="row">
 <article>
-  <h3 class="article-title"><?= $this->Html->link(h($article->title), ['controller'=>'articles','action' => 'view', $article->id]) ?></h3>
+  <h3 class="article-title"><?= $this->Html->link(h($article->title), '/'.$article->category->slug.'/'.$article->slug) ?></h3>
   <?php
   if(!empty($article->featured_media)):
     ?>

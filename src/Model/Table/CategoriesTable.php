@@ -33,6 +33,7 @@ class CategoriesTable extends Table
 
         $this->addBehavior('Timestamp');
         $this->addBehavior('Tree');
+        $this->addBehavior('Sluggable', ['field'=>'name']);
 
         $this->belongsTo('ParentCategories', [
             'className' => 'Categories',
@@ -71,7 +72,7 @@ class CategoriesTable extends Table
           ->order(['lft' => 'ASC']);
       return $menuObject;
     }
-
+    
     /**
      * Returns a rules checker object that will be used for validating
      * application integrity.

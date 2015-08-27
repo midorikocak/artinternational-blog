@@ -1,5 +1,5 @@
 <article>
-  <h3><?= $this->Html->link(h($article->title), ['controller'=>'articles','action' => 'view', $article->id]) ?></h3>
+  <h3><?= $this->Html->link(h($article->title), '/'.$article->category->slug.'/'.$article->slug) ?></h3>
   <div class="row">
     <div class="large-10 medium-10 columns article-info">
       <span class="silent">Written by <a href="#"><?= $article->has('user') ? $this->Html->link($article->user->email, ['controller' => 'Users', 'action' => 'view', $article->user->id]) : '' ?></a> on
