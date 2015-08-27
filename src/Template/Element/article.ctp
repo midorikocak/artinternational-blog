@@ -6,7 +6,7 @@ if(empty($article->category)){
     $article->category->slug = 'articles';
     }
     ?>
-  <h3><?= $this->Html->link(h($article->title), '/'.$article->category->slug.'/'.$article->slug) ?></h3>
+  <h3 class="article-title"><?= $this->Html->link(h($article->title), '/'.$article->category->slug.'/'.$article->slug) ?></h3>
         <?php
       if($session->read('Auth.User')):
       ?>
