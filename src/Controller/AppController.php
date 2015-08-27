@@ -138,7 +138,8 @@ class AppController extends Controller
         $this->Auth->allow([
             'index',
             'view',
-            'display'
+            'display',
+            'archives'
         ]);
         $this->set('session', $this->request->session());
         $this->set('serverUrl', Router::url('/', true));
