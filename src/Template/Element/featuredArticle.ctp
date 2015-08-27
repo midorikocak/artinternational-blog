@@ -1,7 +1,22 @@
 <div class="row">
 <article>
   <h3 class="article-title"><?= $this->Html->link(h($article->title), ['controller'=>'articles','action' => 'view', $article->id]) ?></h3>
+  <?php
+  if(!empty($article->featured_media)):
+    ?>
+    <div class="row">
+    <div class="featured-image">
+      <?= $this->Html->image($article->featured_media->filename,['url'=>['controller'=>'articles','action' => 'view', $article->id]]) ?>
+    </div>
+  </div>
+  <?php endif; ?>
   <div class="row">
+    <div class="article-content large-10 medium-10 small-10 columns large-offset-2 medium-offset-2 small-offset-2">
+    <?= strip_tags($article->body, '<ul><ol><li><p><i><a><img><b><br><div><br/>'); ?>
+      <div class="read-more">
+      <?= $this->Html->link(__('Read More'), ['controller'=>'articles','action' => 'view', $article->id]) ?>
+      </div>
+        <div class="row">
     <div class="large-10 medium-10 small-10 columns article-info">
       <?php
       if($session->read('Auth.User')):
@@ -28,20 +43,7 @@
       ?>
     </div>
   </div>
-  <?php
-  if(!empty($article->featured_media)):
-    ?>
-    <div class="row">
-    <div class="featured-image">
-      <?= $this->Html->image($article->featured_media->filename,['url'=>['controller'=>'articles','action' => 'view', $article->id]]) ?>
-    </div>
   </div>
-  <?php endif; ?>
-  <div class="article-content large-10 medium-10 small-10 columns large-offset-2 medium-offset-2 small-offset-2">
-    <?= strip_tags($article->body, '<ul><ol><li><p><i><a><img><b><br><div><br/>'); ?>
-      <div class="read-more">
-      <?= $this->Html->link(__('Read More'), ['controller'=>'articles','action' => 'view', $article->id]) ?>
-      </div>
   </div>
 </article>
 </div>

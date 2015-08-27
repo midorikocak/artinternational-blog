@@ -39,7 +39,20 @@ h1, h2, h3, h4, h5, h6 {
     text-rendering: optimizeLegibility;
 }
 
-.title-area h1 a{
+.site-title{
+	position:fixed;
+	top:10px;
+}
+
+.top-bar {
+    background: #333333;
+    height: auto;
+    line-height: 2.8125rem;
+    margin-bottom: 0;
+    position: relative;
+}
+
+h1 a{
   margin-top: 30pt;
   font-size: 75pt;
   color: white !important;
@@ -91,8 +104,7 @@ body{
 
 article{
   position: relative;
-  margin-top:90pt;
-  margin-bottom: 2rem;
+  margin-bottom: 90pt;
   font-family: 'droid_sansregular', sans-serif;
   color: rgba(0,0,0,0.8);
 }
@@ -231,6 +243,17 @@ section h2{
   object-fit: cover;
   width: 100%;
   height: auto;
+}
+
+.user-controls a{
+	font-size:15px;
+}
+
+.user-controls{
+	position: fixed;
+	top: 5px;
+	right:40px;
+	z-index:200;
 }
 
 .social{

@@ -32,17 +32,9 @@
     <?= $this->fetch('script') ?>
 </head>
 <body>
+  <div class="site-title"><h1><a href="<?= $serverUrl ?>"><?= $site['title'] ?></a></h1></div>
   <header class="fixed">
     <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 colmuns">
-            <li class="name">
-                <h1><a href="<?= $serverUrl ?>"><?= $site['title'] ?></a></h1>
-            </li>
-            <!-- <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li> -->
-        </ul>
-        <section class="top-bar-section right">
-          <?= $this->element('user') ?>
-        </section>
         <section class="top-bar-section right">
         <?php
           echo $this->cell('Menu');
@@ -50,7 +42,7 @@
       </section>
     </nav>
   </header>
-
+              <?= $this->element('user') ?>
 <main>
     <?= $this->Flash->render() ?>
     <div class="row">
