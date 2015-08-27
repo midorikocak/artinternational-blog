@@ -48,6 +48,8 @@ Router::scope('/', function ($routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Articles', 'action' => 'index']);
+    
+    $routes->connect('/archives', ['controller' => 'Articles', 'action' => 'archives']);
 
     $routes->connect('/:category', ['controller' => 'Categories', 'action' => 'view']);
     
