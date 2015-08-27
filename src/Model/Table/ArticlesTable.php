@@ -141,7 +141,7 @@ class ArticlesTable extends Table
     }
 
     public function getFeaturedArticles(){
-      $query = $this->find('all',['contain'=>['FeaturedMedia'],'contain'=>['Categories','Users','FeaturedMedia'],'conditions'=>['Articles.is_featured = 1','Articles.featured_image IS NOT NULL']]);
+      $query = $this->find('all',['contain'=>['Categories','Users','FeaturedMedia'],'conditions'=>['Articles.is_featured = 1','Articles.featured_image IS NOT NULL']]);
       return $query;
     }
 

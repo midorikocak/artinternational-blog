@@ -1,5 +1,13 @@
+
 <div class="row">
 <article>
+<?php     
+use PhpParser\Builder\Class_;
+if(empty($article->category)){
+    $article->category = new Class_('Category');
+    $article->category->slug = 'articles';
+    }
+    ?>
   <h3 class="article-title"><?= $this->Html->link(h($article->title), '/'.$article->category->slug.'/'.$article->slug) ?></h3>
   <?php
   if(!empty($article->featured_media)):

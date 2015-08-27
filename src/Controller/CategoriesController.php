@@ -63,6 +63,8 @@ class CategoriesController extends AppController
         $this->set('category', $category);
         $this->set('_serialize', ['category']);
     }
+    
+
 
     /**
      * Add method

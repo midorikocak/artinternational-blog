@@ -1,4 +1,11 @@
 <article>
+<?php     
+use PhpParser\Builder\Class_;
+if(empty($article->category)){
+    $article->category = new Class_('Category');
+    $article->category->slug = 'articles';
+    }
+    ?>
   <h3><?= $this->Html->link(h($article->title), '/'.$article->category->slug.'/'.$article->slug) ?></h3>
   <div class="row">
     <div class="large-10 medium-10 columns article-info">

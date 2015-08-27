@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use PhpParser\Builder\Class_;
 
 /**
  * Articles Controller
@@ -31,6 +32,17 @@ class ArticlesController extends AppController
             'articles'
         ]);
     }
+    
+    public function archives(){
+        $query = $this->Articles->find();
+        $query->select(['year' => $query->func()->year(['Articles.created'=>'literal'])])
+            ->select(['month' => $query->func()->monthname(['Articles.created'=>'literal'])])
+            ->select(['id','title','slug'])
+            ->order('Articles.created');
+        $query->contain(['Categories']);
+        $archives = $query->toArray();
+        $this->set(compact('archives'));
+    }
 
     /**
      * View method
@@ -42,16 +54,23 @@ class ArticlesController extends AppController
      */
     public function view($id = null)
     {
-        if(isset($this->request->params['category'])){
-            $categorySlug = $this->request->params['category'];
-        }
-        if(isset($this->request->params['article'])){
-            $articleSlug = $this->request->params['article'];
-        }
         if($id == null){
-            $category = $this->Articles->Categories->find('slugId',['slug'=>$categorySlug])->toArray();
-            $categoryId = $category[$categorySlug];
-            $article = $this->Articles->find('slug',['category_id'=>$categoryId,'slug'=>$articleSlug,'contain'=>['Users','Categories']])->first();
+            if(isset($this->request->params['article'])){
+                $articleSlug = $this->request->params['article'];
+            }
+            
+            if(isset($this->request->params['category'])){
+                $categorySlug = $this->request->params['category'];
+                $category = $this->Articles->Categories->find('slugId',['slug'=>$categorySlug])->toArray();
+                $categoryId = $category[$categorySlug];
+                $article = $this->Articles->find('slug',['category_id'=>$categoryId,'slug'=>$articleSlug,'contain'=>['Users','Categories']])->first();
+            }else{
+                $article = $this->Articles->find('slug',['slug'=>$articleSlug,'contain'=>['Users','Categories']])->first();
+                if(!isset($article->category)){
+                    $article->category = new Class_('Category');
+                    $article->category->slug = "articles";
+                }
+            }
         }else{
             $article = $this->Articles->get($id, [
             'contain' => [

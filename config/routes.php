@@ -50,6 +50,8 @@ Router::scope('/', function ($routes) {
     $routes->connect('/', ['controller' => 'Articles', 'action' => 'index']);
     
     $routes->connect('/archives', ['controller' => 'Articles', 'action' => 'archives']);
+    
+    $routes->connect('/articles/:article', ['controller' => 'Articles', 'action' => 'view']);
 
     $routes->connect('/:category', ['controller' => 'Categories', 'action' => 'view']);
     
