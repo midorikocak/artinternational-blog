@@ -68,6 +68,7 @@ class AppController extends Controller
         
         // if ($this->Auth->user('id')) {
         $this->viewBuilder()->layout('public');
+        $this->checkIfThereIsAdminIfNotCreate();
         $this->checkIfThereSettingIfNotCreate();
         // } else {
         // $this->viewBuilder()->layout('logout');

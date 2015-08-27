@@ -269,6 +269,10 @@ list-style-type: none;
 padding-right: 20px;
 }
 
+.main-content{
+    min-height:60vh;
+}
+
 /*.featured-image-box{
   background-color: red;
   overflow: hidden;
