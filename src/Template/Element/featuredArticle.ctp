@@ -22,7 +22,7 @@ if(empty($article->category)){
     <div class="article-content large-10 medium-10 small-10 columns large-offset-2 medium-offset-2 small-offset-2">
     <?= strip_tags($article->body, '<ul><ol><li><p><i><a><img><b><br><div><br/>'); ?>
       <div class="read-more">
-      <?= $this->Html->link(__('Read More'), ['controller'=>'articles','action' => 'view', $article->id]) ?>
+      <?= $this->Html->link(__('Read More'), '/'.$article->category->slug.'/'.$article->slug) ?>
       </div>
         <div class="row">
     <div class="large-10 medium-10 small-10 columns article-info">
