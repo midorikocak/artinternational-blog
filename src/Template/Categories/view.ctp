@@ -20,5 +20,5 @@
       ?>
     </div>
   </div>
-  <?=  $this->element('articles',['articles'=>$articles, 'paginator'=>$this->Paginator]); ?>
+  <?=  $this->element('featuredArticles',['articles'=>$articles, 'paginator'=>$this->Paginator]); ?>
   </div>

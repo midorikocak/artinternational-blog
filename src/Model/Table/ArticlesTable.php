@@ -180,20 +180,20 @@ class ArticlesTable extends Table
     return implode(" ",array_splice($words,0,$wordLimit));
 }
 
-    public function getArticlesOnMain(){
+    public function getArticlesOnMain($categoryId = null){
 
         $query = $this
           ->find('all',['contain'=>['FeaturedMedia','Users']]);
-
+          if($categoryId !=null){
+            $query->where(['category_id'=>$categoryId]);
+          }
           $query->formatResults(function (\Cake\Datasource\ResultSetInterface $results) {
               return $results->map(function ($row) {
                   $row['body'] = preg_replace("/<img[^>]+\>/i", "", $this->limitWords($row['body'], 100));
                   return $row;
               });
           });
-
         return $query;
-
     }
 
     public function isOwnedBy($articleId, $userId)

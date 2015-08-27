@@ -46,8 +46,8 @@ class CategoriesController extends AppController
         'Category.Articles' => []
       ];
 
-      $articles = $this->paginate($this->Categories->Articles->find('all',['conditions'=>['category_id'=>$id]]));
-
+      //$articles = $this->paginate($this->Categories->Articles->find('all',['conditions'=>['category_id'=>$id]]));
+      $articles = $this->paginate($this->Categories->Articles->getArticlesOnMain($id));
 
       $this->set('articles', $articles);
 

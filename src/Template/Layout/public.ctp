@@ -23,6 +23,9 @@
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
+    <link href='http://fonts.googleapis.com/css?family=PT+Serif:400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Yantramanav:900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -33,7 +36,7 @@
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 colmuns">
             <li class="name">
-                <h1><a href="<?= $serverUrl ?>">Public</a></h1>
+                <h1><a href="<?= $serverUrl ?>">Artistic Projects</a></h1>
             </li>
             <!-- <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li> -->
         </ul>

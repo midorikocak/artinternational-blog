@@ -17,6 +17,8 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\Routing\Router;
+use Cake\ORM\TableRegistry;
+use Cake\Cache\Cache;
 
 /**
 * Application Controller
@@ -67,6 +69,32 @@ class AppController extends Controller
                     //$this->viewBuilder()->layout('logout');
                 //}
             }
+
+            public function checkIfThereIsAdminIfNotCreate(){
+              $users = TableRegistry::get('Users');
+              $admin = $users->find('list')
+              ->where([
+                'role' => 'admin'
+                ])
+                ->toArray();
+                if (empty($admin)) {
+                  if($this->request->params['controller']=='Users'){
+                    $this->Auth->allow([
+                      'add'
+                      ]);
+                    }
+                    if ($this->request->params['controller'] != 'users' && $this->request->params['action'] != 'add') {
+                      $this->layout = 'logout';
+                      $this->redirect([
+                        'controller' => 'users',
+                        'action' => 'add'
+                        ]);
+                      }
+                    }else
+                    {
+                      return true;
+                    }
+                  }
 
             public function beforeFilter(Event $event)
             {
