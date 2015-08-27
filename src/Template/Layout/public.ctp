@@ -32,9 +32,9 @@
     <?= $this->fetch('script') ?>
 </head>
 <body>
-  <div class="site-title"><h1><a href="<?= $serverUrl ?>"><?= $site['title'] ?></a></h1></div>
   <header class="fixed">
     <nav class="top-bar expanded" data-topbar role="navigation">
+    <div class="site-title"><h1><a href="<?= $serverUrl ?>"><?= $site['title'] ?></a></h1></div>
         <section class="top-bar-section right">
         <?php
           echo $this->cell('Menu');
