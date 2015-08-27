@@ -37,8 +37,9 @@ class ArticlesController extends AppController
         $query = $this->Articles->find();
         $query->select(['year' => $query->func()->year(['Articles.created'=>'literal'])])
             ->select(['month' => $query->func()->monthname(['Articles.created'=>'literal'])])
-            ->select(['id','title','slug'])
-            ->order('Articles.created');
+            ->select(['id','title','slug','category_id'])
+            ->order('Articles.created')
+            ->autoFields(true);
         $query->contain(['Categories']);
         $archives = $query->toArray();
         $this->set(compact('archives'));
