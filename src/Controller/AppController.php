@@ -59,11 +59,7 @@ class AppController extends Controller
                 'controller' => 'Articles',
                 'action' => 'index'
             ],
-            'logoutRedirect' => [
-                'controller' => 'Pages',
-                'action' => 'display',
-                'home'
-            ]
+            'logoutRedirect' => '/'
         ]);
         
         // if ($this->Auth->user('id')) {
