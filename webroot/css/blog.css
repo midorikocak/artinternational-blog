@@ -233,6 +233,19 @@ section h2{
   height: auto;
 }
 
+.social{
+	position: fixed;
+	right: 20px;
+	bottom:20px;
+}
+
+.social li
+{
+display: inline;
+list-style-type: none;
+padding-right: 20px;
+}
+
 /*.featured-image-box{
   background-color: red;
   overflow: hidden;

@@ -36,7 +36,7 @@
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 colmuns">
             <li class="name">
-                <h1><a href="<?= $serverUrl ?>">Artistic Projects</a></h1>
+                <h1><a href="<?= $serverUrl ?>"><?= $site['title'] ?></a></h1>
             </li>
             <!-- <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li> -->
         </ul>
@@ -61,6 +61,7 @@
 </main>
 
     <footer>
+    <?= $this->element('social',['social'=>$social]) ?>
     </footer>
 
     <?= $this->Html->script('vendor/jquery'); ?>
