@@ -7,7 +7,9 @@ if(empty($article->category)){
     }
     ?>
   <h3 class="article-title"><?= $this->Html->link(h($article->title), '/'.$article->category->slug.'/'.$article->slug) ?></h3>
-        <?php
+  <?= strip_tags($article->body, '<ul><ol><li><p><i><a><img><b><br><div><br/>'); ?>        
+  <br/>
+  <?php
       if($session->read('Auth.User')):
       ?>
   <div class="row">
@@ -28,5 +30,4 @@ if(empty($article->category)){
         <?php
       endif;
       ?>
-  <?= strip_tags($article->body, '<ul><ol><li><p><i><a><img><b><br><div><br/>'); ?>
 </article>
