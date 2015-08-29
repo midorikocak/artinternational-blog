@@ -188,6 +188,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 
 .featured-slider{
   margin:30px;
+  margin-top:-48px;
 }
 
 .featured-slider img{
@@ -294,6 +295,12 @@ padding-right: 20px;
 	font-size: 15px;
 	margin: 15px;
 	text-align:left;
+}
+
+.container {
+    overflow: inherit;
+    min-height: 92%;
+    padding: 1rem;
 }
 
 /*.featured-image-box{

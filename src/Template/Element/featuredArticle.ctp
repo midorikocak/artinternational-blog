@@ -12,11 +12,16 @@ if(empty($article->category)){
   <?php
   if(!empty($article->featured_media)):
     ?>
-    <div class="row">
-    <div class="featured-image">
-      <?= $this->Html->image($article->featured_media->filename,['url'=>['controller'=>'articles','action' => 'view', $article->id]]) ?>
-    </div>
-  </div>
+      <?php
+      if(isset($article->firstImage)):
+          ?>
+          <div class="row">
+          <div class="featured-image">
+          <?= $this->Html->image($article->firstImage,['url'=>['controller'=>'articles','action' => 'view', $article->id]])
+          ?>
+            </div>
+          </div>
+      <?php endif;  ?>
   <?php endif; ?>
   <div class="row">
     <div class="article-content large-10 medium-10 small-10 columns large-offset-2 medium-offset-2 small-offset-2">

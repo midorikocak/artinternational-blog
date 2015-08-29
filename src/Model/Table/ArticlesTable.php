@@ -190,6 +190,9 @@ class ArticlesTable extends Table
           }
           $query->formatResults(function (\Cake\Datasource\ResultSetInterface $results) {
               return $results->map(function ($row) {
+                  $images = $this->extractImages($row['body']);
+                  if(isset($images[0])){                                         $row['firstImage']  = $images[0];
+                  }
                   $row['body'] = preg_replace("/<img[^>]+\>/i", "", $this->limitWords($row['body'], 100));
                   return $row;
               });
