@@ -78,7 +78,7 @@ body{
     display: block;
     /*font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;*/
     font-family: 'Yantramanav', sans-serif;
-    font-size: 12pt;
+    font-size: 11pt;
     font-weight: bold;
     text-transform: uppercase !important;
     padding-left: 0.9375rem;
@@ -107,6 +107,7 @@ article{
   margin-bottom: 90pt;
   font-family: 'droid_sansregular', sans-serif;
   color: rgba(0,0,0,0.8);
+  font-size: 9px;
 }
 
 .article-title{
@@ -265,6 +266,7 @@ section h2{
 
 .social li
 {
+    font-size: 20px;
 display: inline;
 list-style-type: none;
 padding-right: 20px;
@@ -292,7 +294,7 @@ padding-right: 20px;
 .archive-article{
 	font-family: 'source_sans_prolight';
 	text-transform: uppercase;
-	font-size: 15px;
+	font-size: 11px;
 	margin: 15px;
 	text-align:left;
 }
@@ -301,6 +303,10 @@ padding-right: 20px;
     overflow: inherit;
     min-height: 92%;
     padding: 1rem;
+}
+
+article h3 {
+    font-size: 30px;
 }
 
 /*.featured-image-box{
