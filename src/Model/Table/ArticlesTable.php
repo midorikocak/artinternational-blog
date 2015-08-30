@@ -208,8 +208,7 @@ class ArticlesTable extends Table
           }
           $query->formatResults(function (\Cake\Datasource\ResultSetInterface $results) {
               return $results->map(function ($row) {
-                  $images = $this->extractImages($row['body']);
-                  var_dump($images);
+                  $images = $this->extractAllImages($row['body']);
                   if(isset($images[0])){                                         
                       $row['firstImage']  = $images[0];
                   }
