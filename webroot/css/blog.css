@@ -114,7 +114,6 @@ article{
   position: relative;
   text-align: center;
   font-size:45pt;
-  margin-bottom: -35pt !important;
   z-index: 99;
   line-height: 1.0;
 }
