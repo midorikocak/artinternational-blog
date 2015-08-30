@@ -10,6 +10,7 @@ if(empty($article->category)){
     ?>
   <h3 class="article-title"><?= $this->Html->link(h($article->title), '/'.$article->category->slug.'/'.$article->slug) ?></h3>
   <?php
+  var_dump($article->firstImage);
   if(isset($article->firstImage)):
       ?>
       <div class="row">
