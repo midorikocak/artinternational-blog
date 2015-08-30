@@ -25,7 +25,7 @@ class ArticlesController extends AppController
                 'Users',
                 'FeaturedMedia',
                 'Categories'
-            ]
+                    ]
         ];
         $this->set('articles', $this->paginate($this->Articles->getArticlesOnMain()));
         $this->set('_serialize', [

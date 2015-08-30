@@ -184,7 +184,7 @@ class ArticlesTable extends Table
     public function getArticlesOnMain($categoryId = null){
 
         $query = $this
-          ->find('all',['contain'=>['FeaturedMedia','Users','Categories']]);
+          ->find('all',['contain'=>['FeaturedMedia','Users','Categories'], 'order'=>'Articles.created']);
           if($categoryId !=null){
             $query->where(['category_id'=>$categoryId]);
           }
