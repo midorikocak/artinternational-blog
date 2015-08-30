@@ -122,6 +122,24 @@ class ArticlesTable extends Table
       }
       return $return;
     }
+    
+    private function extractAllImages($string){
+      $return  = [];
+
+      $doc = new \DOMDocument();
+
+      $doc->loadHTML($string);
+      $xpath = new \DOMXPath($doc);
+      $serverName = Router::url('/', true);
+      $query = "//img/@src";
+      $nodelist = $xpath->query($query);
+      foreach ($nodelist as $element) {
+        //print_r($element->value);
+        array_push($return, $element->value);
+        //echo $element->attributes->getNamedItem('src')->nodeValue;
+      }
+      return $return;
+    }
 
     public function beforeMarshal( $event, \ArrayObject $data, \ArrayObject $options)
     {
