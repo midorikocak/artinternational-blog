@@ -107,7 +107,7 @@ article{
   margin-bottom: 90pt;
   font-family: 'droid_sansregular', sans-serif;
   color: rgba(0,0,0,0.8);
-  font-size: 9px;
+  font-size: 11px;
 }
 
 .article-title{
@@ -116,6 +116,7 @@ article{
   font-size:45pt;
   margin-bottom: -35pt !important;
   z-index: 99;
+  line-height: 1.0;
 }
 
 .article-content{
