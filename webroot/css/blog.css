@@ -321,7 +321,7 @@ article h3 {
 .left-link{
     position:fixed;
     left:20px;
-    top:50%;
+    bottom:30px;
     z-index:101;
 }
 

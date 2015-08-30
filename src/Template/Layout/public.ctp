@@ -44,7 +44,7 @@
   </header>
   <?= $this->element('user') ?>
   <div class="row">
-  <aside class="left-link"><?= $this->Html->image('ai.png')?></aside>
+  <aside class="left-link"><?= $this->Html->image('ai.png', ['url'=>'/'])?></aside>
   <aside class="right-link"><?= $this->Html->image('not-fair.png',['url'=>'http://itshontfair.artisticprojects-ai.com'])?></aside>
   </div>
 <main>
