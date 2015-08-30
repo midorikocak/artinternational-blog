@@ -310,6 +310,20 @@ article h3 {
     font-size: 30px;
 }
 
+.right-link{
+    position:fixed;
+    right:20px;
+    top:40%;
+    z-index:101;
+}
+
+.left-link{
+    position:fixed;
+    left:20px;
+    top:50%;
+    z-index:101;
+}
+
 /*.featured-image-box{
   background-color: red;
   overflow: hidden;

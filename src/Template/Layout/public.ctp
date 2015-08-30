@@ -42,7 +42,11 @@
       </section>
     </nav>
   </header>
-              <?= $this->element('user') ?>
+  <?= $this->element('user') ?>
+  <div class="row">
+  <aside class="left-link"><?= $this->Html->image('ai.png')?></aside>
+  <aside class="right-link"><?= $this->Html->image('not-fair.png',['url'=>'http://itshontfair.artisticprojects-ai.com'])?></aside>
+  </div>
 <main>
     <?= $this->Flash->render() ?>
     <div class="row">
