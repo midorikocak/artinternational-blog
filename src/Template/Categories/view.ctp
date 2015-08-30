@@ -20,5 +20,12 @@
       ?>
     </div>
   </div>
-  <?=  $this->element('featuredArticles',['articles'=>$articles, 'paginator'=>$this->Paginator]); ?>
+  <?php
+  if(mb_strtolower($category->name) == "articles"){
+      echo $this->element('articlesArchive',['articles'=>$articles, 'paginator'=>$this->Paginator]); 
+  }
+  else{
+      echo  $this->element('featuredArticles',['articles'=>$articles, 'paginator'=>$this->Paginator]); 
+  }
+  ?>
   </div>
