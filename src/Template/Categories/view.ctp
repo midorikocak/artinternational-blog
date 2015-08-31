@@ -21,7 +21,7 @@
     </div>
   </div>
   <?php
-  if(mb_strtolower($category->name) == "article"){
+  if(mb_strtolower($category->name) == "article" || mb_strtolower($category->name) == "interviews"){
       echo $this->element('articlesArchive',['articles'=>$articles, 'paginator'=>$this->Paginator]); 
   }
   else{
