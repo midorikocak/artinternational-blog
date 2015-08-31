@@ -45,7 +45,7 @@
   <?= $this->element('user') ?>
   <div class="row">
   <aside class="left-link"><?= $this->Html->image('ai.png', ['url'=>'/'])?></aside>
-  <aside class="right-link"><?= $this->Html->link($this->Html->image('web-blog-finals-09.png',array('alt'=>'it\'s not fair')),'http://itsnotfair.artisticprojects-ai.com', array('target'=>'_blank','escape'=>false));?></aside>
+  <aside class="right-link"><?= $this->Html->link($this->Html->image('web-blog-finals-10.png',array('alt'=>'it\'s not fair')),'http://itsnotfair.artisticprojects-ai.com', array('target'=>'_blank','escape'=>false));?></aside>
   
   
   </div>
