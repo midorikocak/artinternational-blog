@@ -109,6 +109,7 @@ article{
   font-family: 'droid_sansregular', sans-serif;
   color: rgba(0,0,0,0.8);
   font-size: 13px;
+  text-align:justify;
 }
 
 .article-title{
