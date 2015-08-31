@@ -4,7 +4,7 @@
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        Public
+        <?= $site['title'] ?>
     </title>
     <?= $this->Html->meta('icon') ?>
 
@@ -34,7 +34,7 @@
 <body>
   <header class="fixed">
     <nav class="top-bar expanded" data-topbar role="navigation">
-    <div class="site-title"><h1><a href="<?= $serverUrl ?>"><?= $site['title'] ?></a></h1></div>
+    <div class="site-title"><h1><a href="<?= $serverUrl ?>"><?= $this->Html->image('img/web-blog-finals-10.png') ?></a></h1></div>
         <section class="top-bar-section right">
         <?php
           echo $this->cell('Menu');
