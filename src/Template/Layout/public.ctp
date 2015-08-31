@@ -34,7 +34,7 @@
 <body>
   <header class="fixed">
     <nav class="top-bar expanded" data-topbar role="navigation">
-    <div class="site-title"><a href="<?= $serverUrl ?>"><?= $this->Html->image('web-blog-finals-10.png') ?></a></div>
+    <div class="site-title"><a href="<?= $serverUrl ?>"><?= $this->Html->image('web-blog-finals-09.png') ?></a></div>
         <section class="top-bar-section right">
         <?php
           echo $this->cell('Menu');
@@ -45,7 +45,7 @@
   <?= $this->element('user') ?>
   <div class="row">
   <aside class="left-link"><?= $this->Html->image('ai.png', ['url'=>'/'])?></aside>
-  <aside class="right-link"><?= $this->Html->link($this->Html->image('not-fair.png',array('alt'=>'it\'s not fair')),'http://itsnotfair.artisticprojects-ai.com', array('target'=>'_blank','escape'=>false));?></aside>
+  <aside class="right-link"><?= $this->Html->link($this->Html->image('web-blog-finals-09.png',array('alt'=>'it\'s not fair')),'http://itsnotfair.artisticprojects-ai.com', array('target'=>'_blank','escape'=>false));?></aside>
   
   
   </div>
