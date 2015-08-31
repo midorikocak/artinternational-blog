@@ -74,8 +74,8 @@ class AppController extends Controller
 
     public function checkIfThereSettingIfNotCreate()
     {
-        $siteSettings = Cache::read('site');
-        if (empty($siteSettings['title'])) {
+        // $siteSettings = Cache::read('site');
+        // if (empty($siteSettings['title'])) {
             $settingsTable = TableRegistry::get('Settings');
             $settingsList = $settingsTable->getSettingsForCache();
 
@@ -89,9 +89,9 @@ class AppController extends Controller
                     'action' => 'editAll'
                 ]);
             }
-        } else {
-            return true;
-        }
+        // } else {
+        //     return true;
+        // }
     }
     
     public function checkIfThereCategoriesIfNotCreate()
